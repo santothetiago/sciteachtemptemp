@@ -1,6 +1,6 @@
 # 🏛️ Sci-Teach Library — Centralized STEM Resource Hub
 
-> **"CONQUER STEM — UNSEEN, UNTOUCHABLE, SCHOLAR"**  
+> **"SCI-TEACH LIBRARY — STAY PREPARED, TRAILBLAZERS!"**  
 > *A centralized digital resource library designed for Senior High School STEM students ("Spartans") at the University of Science and Technology of Southern Philippines (USTP).*
 
 ---
@@ -189,4 +189,4 @@ Save the file and commit to `main` — GitHub Pages updates automatically within
 
 ---
 
-*“Scientia et Virtus — Defend your grades, conquer STEM.”*
+*“Scientia et Virtus — Stay Prepared, Trailblazers!”*
