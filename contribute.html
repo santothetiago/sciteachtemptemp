@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contribution Portal | Sci-Teach Library</title>
+  <meta name="description" content="Submit reviewers, lecture notes, formula sheets, or study materials to empower fellow USTP SHS STEM Spartans.">
+  <meta name="theme-color" content="#070a13">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="contribute">
+
+  <!-- TOP FLOATING GLASSMORPHIC PILL NAVIGATION -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      
+      <a href="index.html" class="brand-logo" aria-label="Sci-Teach Library Home">
+        <div class="brand-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="21 8 21 21 3 21 3 8"></polyline>
+            <rect x="1" y="3" width="22" height="5"></rect>
+            <line x1="10" y1="12" x2="14" y2="12"></line>
+          </svg>
+        </div>
+        <div class="brand-title-group">
+          <span class="brand-title">Sci-Teach</span>
+          <span class="brand-subtitle">Contributor Portal</span>
+        </div>
+      </a>
+
+      <nav class="center-nav-pill" role="navigation" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="grade-11.html" class="nav-link">Grade 11</a>
+        <a href="grade-12.html" class="nav-link">Grade 12</a>
+        <a href="series.html" class="nav-link">Sci-Teach Series</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contribute.html" class="circle-arrow-btn" title="Submit Resources" aria-label="Submit Resources">↗</a>
+        <a href="contribute.html" class="nav-cta-pill">
+          <span>Contribute</span>
+        </a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- MOBILE SLIDE-OVER DRAWER -->
+  <div class="mobile-drawer" role="dialog" aria-modal="true">
+    <nav class="mobile-drawer-links">
+      <a href="index.html" class="mobile-drawer-link">Home Hub</a>
+      <a href="grade-11.html" class="mobile-drawer-link">Grade 11 Resources</a>
+      <a href="grade-12.html" class="mobile-drawer-link">Grade 12 Resources</a>
+      <a href="series.html" class="mobile-drawer-link">Sci-Teach Series</a>
+      <a href="contribute.html" class="mobile-drawer-link active">Contribute Portal</a>
+    </nav>
+  </div>
+
+  <main>
+    <!-- PAGE HERO HEADER -->
+    <header class="page-hero">
+      <div class="page-hero-inner">
+        <span class="section-pill-badge badge-gold">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
+          Spartans Shield Spartans • Gateway
+        </span>
+        <h1 class="page-title">Spartan Contribution Portal</h1>
+        <p class="page-description">
+          The Sci-Teach Library is built by Spartans, for Spartans. Share your high-yield summaries, handwritten equation guides, slide decks, and exam reviewers to empower current and future STEM cohorts.
+        </p>
+      </div>
+    </header>
+
+    <!-- FORM & GUIDELINES CONTAINER -->
+    <section class="container" style="padding-top: 3.5rem; padding-bottom: 6rem;">
+      <div class="contribute-grid">
+        
+        <!-- SUBMISSION FORM -->
+        <div class="contribute-form-card">
+          <h2 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; text-transform: uppercase;">
+            Submit Digital Study Material
+          </h2>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 2rem;">
+            Fill out the metadata below. Uploaded links will be queued for academic review by the Sci-Tech Society.
+          </p>
+
+          <form id="contributeForm">
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contributorName" class="form-label">
+                  Your Full Name / Contributor Alias <span class="required">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="contributorName" 
+                  class="form-input" 
+                  placeholder="e.g. Juan Dela Cruz / Spartan-117" 
+                  required
+                >
+                <span class="form-hint">Will be credited on the resource card.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="studentId" class="form-label">
+                  Student ID or Section
+                </label>
+                <input 
+                  type="text" 
+                  id="studentId" 
+                  class="form-input" 
+                  placeholder="e.g. 2024300123 / 12-STEM-Archimedes"
+                >
+                <span class="form-hint">Used solely for internal validation.</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="gradeLevel" class="form-label">
+                  Target Grade Level <span class="required">*</span>
+                </label>
+                <select id="gradeLevel" class="form-select" required>
+                  <option value="11">Grade 11 (Earth & Life, Physical Sci)</option>
+                  <option value="12" selected>Grade 12 (Gen Physics, Gen Chem, Gen Bio)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="targetSubject" class="form-label">
+                  Target Subject <span class="required">*</span>
+                </label>
+                <select id="targetSubject" class="form-select" required>
+                  <!-- Populated dynamically based on Grade Level -->
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="resourceType" class="form-label">
+                  Resource Category <span class="required">*</span>
+                </label>
+                <select id="resourceType" class="form-select" required>
+                  <option value="Personal Notes/Docs">Personal Notes / Docs / Cheat Sheet</option>
+                  <option value="Readable/Text">Readable / Text (Handout or PDF)</option>
+                  <option value="Practice Exercises">Practice Exercises / Formative Reviewer</option>
+                  <option value="Watchable/Video">Watchable / Video / Reel Tutorial</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="topicTitle" class="form-label">
+                  Topic / Module Title <span class="required">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="topicTitle" 
+                  class="form-input" 
+                  placeholder="e.g., Electric Flux & Gauss's Law Summary" 
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="driveLink" class="form-label">
+                Google Drive / Cloud File Link <span class="required">*</span>
+              </label>
+              <input 
+                type="url" 
+                id="driveLink" 
+                class="form-input" 
+                placeholder="https://drive.google.com/file/d/... or OneDrive link" 
+                required
+              >
+              <span class="form-hint">Ensure sharing permissions are set to "Anyone with the link can view".</span>
+            </div>
+
+            <div class="form-group">
+              <label for="description" class="form-label">
+                Brief Description & Key Learning Objectives <span class="required">*</span>
+              </label>
+              <textarea 
+                id="description" 
+                class="form-textarea" 
+                rows="4" 
+                placeholder="Describe what makes this resource helpful, problem types covered, formulas derived, and target competency..." 
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-checkbox-label">
+                <input type="checkbox" required>
+                <span>
+                  I affirm that this material complies with USTP Academic Integrity guidelines, contains accurate scientific content, and gives appropriate credit to original references.
+                </span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn-submit-portal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              <span>Submit Resource to Sci-Teach</span>
+            </button>
+
+          </form>
+        </div>
+
+        <!-- GUIDELINES & LOCAL SUBMISSIONS SIDEBAR -->
+        <div>
+          <div class="guidelines-card">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              Submission Standards
+            </h3>
+
+            <div class="guideline-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <div>
+                <strong style="color: #fff;">Clear Legibility:</strong> PDF scans or digital documents must be crisp, with legible mathematical symbols and labeled diagrams.
+              </div>
+            </div>
+
+            <div class="guideline-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <div>
+                <strong style="color: #fff;">Curriculum Alignment:</strong> Content must directly correspond to DepEd / USTP Senior High School STEM competencies.
+              </div>
+            </div>
+
+            <div class="guideline-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <div>
+                <strong style="color: #fff;">Answer Keys Included:</strong> Practice sets and reviewers should include worked solutions or comprehensive answer keys.
+              </div>
+            </div>
+
+            <div class="guideline-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <div>
+                <strong style="color: #fff;">Cloud Sharing:</strong> Ensure Google Drive permissions are configured to "Viewer" for all students.
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+              <h4 style="font-family: var(--font-serif); font-size: 0.95rem; color: #fff; margin-bottom: 0.5rem; text-transform: uppercase;">
+                Contribute via GitHub PR
+              </h4>
+              <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">
+                For students familiar with Git: fork the repository, append your resource object into <code style="color: var(--theme-gold-light); font-family: var(--font-mono);">assets/js/data.js</code>, and open a Pull Request!
+              </p>
+            </div>
+          </div>
+
+          <!-- RECENT SUBMISSIONS ON THIS DEVICE (LOCAL STORAGE) -->
+          <div class="recent-submissions-card">
+            <h4 style="font-family: var(--font-serif); font-size: 1rem; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: space-between;">
+              <span>Submissions On This Device</span>
+              <span style="font-size: 0.7rem; color: var(--theme-gold-light); font-family: var(--font-mono);">Local Cache</span>
+            </h4>
+            <div id="userSubmissionsList" class="recent-sub-list">
+              <!-- Rendered via app.js from localStorage -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- SUCCESS / CONFIRMATION MODAL -->
+  <div id="resourceModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button onclick="closeModal()" class="modal-close-btn" aria-label="Close modal">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="brand-title-group">
+              <span class="brand-title">Sci-Teach</span>
+              <span class="brand-subtitle">USTP Spartans</span>
+            </div>
+          </div>
+          <p>The Sci-Teach Library is an open peer-supported initiative developed for Senior High School STEM students at USTP.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Portal Shortcuts</h4>
+          <div class="footer-links">
+            <a href="index.html">Home Hub</a>
+            <a href="grade-11.html">Grade 11 Materials</a>
+            <a href="grade-12.html">Grade 12 Materials</a>
+            <a href="series.html">Sci-Teach Series</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Verification</h4>
+          <div class="footer-links">
+            <a href="contribute.html">Faculty Advisors</a>
+            <a href="contribute.html">Sci-Tech Academic Committee</a>
+            <a href="contribute.html">Formatting Standards</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Deployment</h4>
+          <div class="footer-links">
+            <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">Zero-Config GitHub Pages</a>
+            <a href="README.md" target="_blank">Documentation README</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 USTP Senior High School Sci-Tech Society. Built for GitHub Pages.</div>
+        <div style="font-family: var(--font-mono);">Scientia et Virtus • Spartans Shield Spartans</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade 11 Resource Hub | Sci-Teach Library</title>
+  <meta name="description" content="Centralized Grade 11 STEM Resources: Physical Science and Earth & Life Science notes, modules, video reels, and reviewer problem sets.">
+  <meta name="theme-color" content="#070a13">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="grade-11">
+
+  <!-- TOP FLOATING GLASSMORPHIC PILL NAVIGATION -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      
+      <a href="index.html" class="brand-logo" aria-label="Sci-Teach Library Home">
+        <div class="brand-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div class="brand-title-group">
+          <span class="brand-title">Sci-Teach</span>
+          <span class="brand-subtitle">Grade 11 Hub</span>
+        </div>
+      </a>
+
+      <nav class="center-nav-pill" role="navigation" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="grade-11.html" class="nav-link active">Grade 11</a>
+        <a href="grade-12.html" class="nav-link">Grade 12</a>
+        <a href="series.html" class="nav-link">Sci-Teach Series</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contribute.html" class="circle-arrow-btn" title="Submit Resources" aria-label="Submit Resources">↗</a>
+        <a href="contribute.html" class="nav-cta-pill">
+          <span>Contribute</span>
+        </a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- MOBILE SLIDE-OVER DRAWER -->
+  <div class="mobile-drawer" role="dialog" aria-modal="true">
+    <nav class="mobile-drawer-links">
+      <a href="index.html" class="mobile-drawer-link">Home Hub</a>
+      <a href="grade-11.html" class="mobile-drawer-link active">Grade 11 Resources</a>
+      <a href="grade-12.html" class="mobile-drawer-link">Grade 12 Resources</a>
+      <a href="series.html" class="mobile-drawer-link">Sci-Teach Series</a>
+      <a href="contribute.html" class="mobile-drawer-link">Contribute Portal</a>
+    </nav>
+  </div>
+
+  <main>
+    <!-- PAGE HERO HEADER -->
+    <header class="page-hero">
+      <div class="page-hero-inner">
+        <span class="section-pill-badge badge-blue">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Grade 11 • Blue Notebook Theme
+        </span>
+        <h1 class="page-title">Grade 11 Resource Hub</h1>
+        <p class="page-description">
+          Curated study repository for Physical Science and Earth & Life Science. Access verified modules, lecture presentations, student cheat sheets, and formative practice drills.
+        </p>
+
+        <!-- SUBJECT SELECTOR TABS -->
+        <div class="filter-tabs-row" style="margin-top: 1rem;">
+          <button type="button" class="tab-pill-btn active theme-g11" data-subject-target="physical-science">
+            Physical Science
+          </button>
+          <button type="button" class="tab-pill-btn" data-subject-target="earth-life">
+            Earth & Life Science
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT & FILTER SECTION -->
+    <section class="container" style="padding-top: 3rem; padding-bottom: 6rem;">
+      
+      <!-- CONTROLS BAR: SEARCH & CATEGORY CHIPS -->
+      <div class="controls-bar">
+        <!-- Real-time search bar -->
+        <div class="search-box-wrap">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input 
+            type="text" 
+            id="grade11Search" 
+            class="search-input" 
+            placeholder="Search by topic (e.g., IMFA, Light Elements), module, or contributor..." 
+            autocomplete="off"
+            aria-label="Search Grade 11 Resources"
+          >
+          <button type="button" id="searchClearBtn" class="search-clear-btn" aria-label="Clear Search">✕</button>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="category-filter-chips">
+          <button type="button" class="category-chip active" data-category-target="all">
+            All Categories
+          </button>
+          <button type="button" class="category-chip" data-category-target="watchable">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Watchable / Video
+          </button>
+          <button type="button" class="category-chip" data-category-target="readable">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            Readable / Text
+          </button>
+          <button type="button" class="category-chip" data-category-target="notes">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            Personal Notes / Docs
+          </button>
+          <button type="button" class="category-chip" data-category-target="exercises">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+            Practice Exercises
+          </button>
+        </div>
+      </div>
+
+      <!-- DYNAMIC MODULES CONTAINER -->
+      <div id="grade11ModulesContainer">
+        <!-- Dynamically rendered via app.js and data.js -->
+      </div>
+
+    </section>
+  </main>
+
+  <!-- RESOURCE PREVIEW MODAL -->
+  <div id="resourceModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button onclick="closeModal()" class="modal-close-btn" aria-label="Close modal">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="brand-title-group">
+              <span class="brand-title">Sci-Teach</span>
+              <span class="brand-subtitle">USTP Spartans</span>
+            </div>
+          </div>
+          <p>Centralized digital resource hub for USTP SHS STEM Spartans. Module content contributed and verified by faculty and Sci-Tech officers.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <div class="footer-links">
+            <a href="index.html">Home Hub</a>
+            <a href="grade-11.html">Grade 11 Hub</a>
+            <a href="grade-12.html">Grade 12 Hub</a>
+            <a href="series.html">Sci-Teach Series</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Grade 11 Subjects</h4>
+          <div class="footer-links">
+            <a href="grade-11.html">Physical Science (Modules 1-3)</a>
+            <a href="grade-11.html">Earth & Life Science (Modules 1-2)</a>
+            <a href="series.html">Season 4 Fusion Reactions</a>
+            <a href="series.html">Season 3 Science of Liquids</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Contribute</h4>
+          <div class="footer-links">
+            <a href="contribute.html">Submit Your Notes</a>
+            <a href="contribute.html">Submit Formative Reviewer</a>
+            <a href="contribute.html">Officer Verification Standards</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 USTP Senior High School Sci-Tech Society. Built for GitHub Pages.</div>
+        <div style="font-family: var(--font-mono);">Scientia et Virtus • Grade 11 Blue Notebook</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
