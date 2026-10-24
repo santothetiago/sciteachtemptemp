@@ -38,8 +38,10 @@ The platform's visual identity matches an epic **Spartan cinematic sci-fi aesthe
 │   │   ├── data.js         # Centralized JSON data object containing all modules & metadata
 │   │   └── app.js          # Dynamic renderer, real-time client search, & interactions
 │   └── images/
-│       ├── hero-clean.jpg  # Pristine 16:9 Spartan warrior cinematic background
-│       └── spartan-hero.jpg# Reference artwork asset
+│       ├── spartan-raw.jpg         # Raw Spartan warrior cinematic background (no watermark/text)
+│       ├── spartan-helmet.jpg      # 3D Golden Spartan helmet with fluid mercury ripples
+│       ├── ustp-logo.png           # Official USTP University logo
+│       └── ustp-logo-transparent.png# Official USTP University logo (transparent emblem)
 └── README.md               # GitHub Pages setup and documentation
 ```
 
