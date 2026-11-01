@@ -10,10 +10,10 @@
 The **Sci-Teach Library** provides an organized, reliable, and comprehensive digital study repository for senior high school STEM Spartans. Built for **zero-config deployment on GitHub Pages**, it runs purely on vanilla web standards (**HTML5, modern CSS3, Vanilla ES6+ JavaScript**) without build steps, dependencies, or server overhead.
 
 The platform's visual identity matches an epic **Spartan cinematic sci-fi aesthetic**:
-- **Hero cover layout**: Dramatic dark celestial storm backdrop with an ornate Spartan hoplite warrior, liquid iridescent ribbons, and subtle ambient glows.
+- **Hero cover layout**: High-resolution study environment background shifted right for ample negative space, paired with dominant editorial serif typography (`SCI-TEACH LIBRARY`), proportional slogan, and enlarged high-legibility introductory text.
 - **Top floating glassmorphic pill navigation bar**: Centered capsule links and distinct CTA pill buttons.
-- **Cinematic serif typography**: Google Fonts *Cinzel* for bold headlines paired with high-legibility *Plus Jakarta Sans* body text.
-- **Floating holographic glassmorphic status cards**: Floating over the warrior background displaying live hub telemetry and verification seals.
+- **Cinematic serif typography**: Google Fonts *Cinzel* / *Bodoni Moda* for bold headlines paired with high-legibility *Plus Jakarta Sans* body text.
+- **Floating holographic glassmorphic status cards**: Translucent liquid glass card displaying active hub telemetry and verification seals.
 - **Subject-themed color coding**:
   - **Grade 11 Theme**: Soft Sky Blue / Cyan (`#0284c7`) — Blue Notebook
   - **Grade 12 Theme**: Bio/Chem Green (`#059669`) — Green Notebook
@@ -26,11 +26,12 @@ The platform's visual identity matches an epic **Spartan cinematic sci-fi aesthe
 
 ```text
 /
-├── index.html              # Landing Page / Home Hub with Cinematic Hero & Directory
+├── index.html              # Landing Page / Home Hub with Dominant Hero & Directory
 ├── grade-11.html           # Grade 11 Hub (Earth & Life Science, Physical Science)
 ├── grade-12.html           # Grade 12 Hub (Gen Physics, Gen Chem, Gen Bio, Midterm Reviewers)
 ├── series.html             # Sci-Teach Series Hub (Seasons 1–4 Facebook Reels)
 ├── contribute.html         # Spartan Contribution Portal (Student Submission Gateway)
+├── admin.html              # Officer Admin Publishing Dashboard (Direct GitHub API Publishing)
 ├── backend/
 │   └── Code.gs             # Google Apps Script backend to log submissions to Google Sheets
 ├── assets/
@@ -38,8 +39,10 @@ The platform's visual identity matches an epic **Spartan cinematic sci-fi aesthe
 │   │   └── style.css       # Full stylesheet with CSS custom properties & responsive design
 │   ├── js/
 │   │   ├── data.js         # Centralized JSON data object containing all modules & metadata
-│   │   └── app.js          # Dynamic renderer, real-time client search, & form submissions
+│   │   ├── app.js          # Dynamic renderer, real-time client search, & form submissions
+│   │   └── admin.js        # GitHub REST API direct-to-repository publishing controller
 │   └── images/
+│       ├── hero-library.png        # High-resolution library background scene (shifted right)
 │       ├── spartan-raw.jpg         # Hero cover background image
 │       ├── glass-iridescent.png    # Procedural iridescent liquid-glass wave reflection texture
 │       ├── ustp-logo.png           # Official USTP University logo
@@ -83,7 +86,7 @@ This project requires **no npm install, no bundlers, and no compilation**. To de
 ## ⚡ Core Features
 
 ### 1. Landing Page (`index.html`)
-- **Cinematic Spartan Hero**: Exact layout match with centered floating glassmorphic pill navbar, circular action button `[ ↗ ]`, distinct pill CTA `[ CONTRIBUTE ]`, and floating iridescent status cards.
+- **Dominant Hero Composition**: Balanced editorial layout featuring the high-resolution study background shifted right, dominant serif headline `SCI-TEACH LIBRARY`, scaled slogan, doubled body text, and a companion iridescent liquid-glass card (`YOUR ACADEMIC EDGE`).
 - **"What's New?" Section (3/14/2026)**:
   - Launching of the Sci-Teach Library
   - Added new Season 4 Episodes
@@ -99,55 +102,19 @@ This project requires **no npm install, no bundlers, and no compilation**. To de
 - **Subject Switcher**:
   1. *Physical Science* (Modules 1, 2, 3)
   2. *Earth & Life Science*
-- **Curriculum-Aligned Data**:
-  - **Module 1**: Origin of Light Elements, The Light Elements, Formation of Heavy Elements, Neutron Capture (s-process & r-process).
-  - **Module 2**: Atomic Symbol, Atomic Number, Mass Number, Prediction & Discovery of New Elements.
-  - **Module 3**: Chemical Bonding, Intermolecular Forces of Attraction (IMFA), Strength of IMFA & Physical Properties.
-  - *Lead Contributors*: Ma'am Glea Maes Sales & Sci-Tech Society Officers.
-- **Resource Categories**: Watchable / Video, Readable / Text, Personal Notes / Docs, Practice Exercises.
-- **Client-Side Real-Time Search**: Instant filtering by topic, contributor, or keyword with search term highlighting.
+- **Curriculum-Aligned Data**: Origin of light elements, stellar nucleosynthesis, IMFA, polarity, and geological materials.
+- **Instant Search & Category Filtering**: Filter between *Watchable/Video*, *Readable/Text*, *Personal Notes/Docs*, and *Practice Exercises*.
 
 ### 3. Grade 12 Resource Hub (`grade-12.html`)
 - **Subject Switcher**:
   1. *General Physics*
   2. *General Chemistry*
   3. *General Biology*
-- **Semestral & Reviewer Coverage**:
-  - **General Physics**:
-    - *1st Sem*: Units & Physical Quantities, Error Analysis, Vectors, Kinematics, Projectile Motion. *(Contrib: Ma'am Naurah Malawi / Officers)*
-    - *2nd Sem*: Electric Charge & Field, Electric Flux & Gauss’s Law, Electric Potential & Difference. *(Contrib: Ma'am Naurah Malawi / Officers)*
-    - *Midterms Reviewer*: Comprehensive 2nd Semester Midterms Reviewer. *(Contrib: Sci-Tech Society Officers)*
-  - **General Chemistry**:
-    - *1st Sem*: Empirical & Molecular Formula, Stoichiometry, Chemical Reactions, Gas Laws, Limiting/Excess Reactants. *(Contrib: Ma'am Naurah Malawi / Officers)*
-    - *2nd Sem*: Kinetic Molecular Theory, IMFA, Properties of Liquids, Solids, Phase Changes. *(Contrib: Ma'am Charisa Bee Aleonar / Officers)*
-  - **General Biology**:
-    - *1st Sem*: Spontaneous Generation Theory, Plant & Animal Organ Systems. *(Contrib: Ma'am Charisa Bee Aleonar / Officers)*
-    - *2nd Sem*: Mendelian Inheritance, Gene Interaction, Pedigree Analysis. *(Contrib: Ma'am Charisa Bee Aleonar / Officers)*
-- **Interactive Modals**: Detailed preview with one-click direct access.
+- **Semester Separation**: Clean tabs to filter between 1st Semester and 2nd Semester competencies.
+- **Midterms Reviewer Hub**: Direct downloads for comprehensive midterm reviewers.
 
 ### 4. Sci-Teach Series Hub (`series.html`)
-- **All 18 Episodes across Seasons 1 to 4** streaming directly on Facebook Reels:
-  - **Season 1**:
-    - EP 1: *Origins of the Universe & Rock Cycle*
-    - EP 2: *Photosynthesis & Cellular Respiration*
-    - EP 3: *Gas Laws to Ideal Gas Laws*
-    - EP 4: *Newton's Law to Projectile Motion*
-  - **Season 2**:
-    - EP 1: *Types of Decay*
-    - EP 3: *Electric Charge to Coulomb's Law*
-    - EP 4: *Electric Flux*
-  - **Season 3**:
-    - EP 1: *Stoichiometry in Action*
-    - EP 2: *Science of Liquids and Solids*
-    - EP 3: *Mendelian Inheritance*
-    - EP 4: *Journey through Coulomb's Law*
-    - EP 5: *The Big Bang Theory*
-  - **Season 4**:
-    - EP 1: *Rocks*
-    - EP 2: *Auras of Electricity*
-    - EP 3: *Nuclear Fusion Reactions*
-    - EP 4: *Phase Changes of Matter*
-    - EP 5: *Patterns of Inheritance and Pedigree Analysis*
+- **18 Video Reel Episodes**: Direct links to Facebook Reels across Seasons 1 to 4.
 - **Instant Search & Season Filter**: Filter by season or search for specific scientific terms.
 
 ### 5. Contribution Portal (`contribute.html`) & Google Apps Script Backend (`backend/Code.gs`)
@@ -167,9 +134,20 @@ This project requires **no npm install, no bundlers, and no compilation**. To de
 
 ---
 
+### 6. Officer Admin Publishing Dashboard (`admin.html` & `assets/js/admin.js`)
+- **Direct GitHub Contents API Integration**: Sci-Tech Society officers can publish vetted study materials directly to `assets/js/data.js` without manual coding or local Git tools.
+- **Workflow**:
+  1. Access `admin.html` (protected with Officer Passcode / PIN, default `SPARTAN2026`).
+  2. Configure your GitHub Personal Access Token (PAT with `repo` or `Contents: Read & Write` scope), Owner, and Repo name in the GitHub Settings modal.
+  3. Enter resource metadata (Grade, Subject, Target Module/Semester, Category, Title, Contributor, Drive Link, and Description).
+  4. Click **Publish to Sci-Teach Library**: The dashboard fetches `assets/js/data.js`, decodes the base64 content, inserts the new resource object into the corresponding subject/module array, increments the verified resources counter, and sends a `PUT` request with an automated commit message.
+  5. GitHub Pages will build and deploy the update live automatically.
+
+---
+
 ## 🛠️ How to Add or Update Content in `assets/js/data.js`
 
-To add a new reviewer or video episode, edit `assets/js/data.js`:
+To manually add a new reviewer or video episode, edit `assets/js/data.js`:
 
 ```javascript
 // Example: Adding a resource to Grade 11 Physical Science Module 1

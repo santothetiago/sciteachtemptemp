@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Officer Publishing Dashboard | Sci-Teach Library</title>
+  <meta name="description" content="Officer Admin Publishing Dashboard for USTP Senior High School STEM Academic Officers. Directly publish approved learning resources via GitHub REST API.">
+  <meta name="theme-color" content="#070b16">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Officer Admin Dashboard | Sci-Teach Library">
+  <meta property="og:description" content="Direct-to-Repository GitHub Publishing for USTP SHS STEM Academic Officers.">
+  <meta property="og:type" content="website">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="admin">
+
+  <!-- TOP FLOATING GLASSMORPHIC PILL NAVIGATION -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      
+      <!-- Brand Logo Left with Official USTP Emblem -->
+      <a href="index.html" class="brand-logo" aria-label="Sci-Teach Library Home">
+        <div class="brand-emblem">
+          <img src="assets/images/ustp-logo-transparent.png" alt="USTP Logo" width="36" height="36">
+        </div>
+        <div class="brand-title-group">
+          <span class="brand-title">Sci-Teach</span>
+          <span class="brand-subtitle">USTP Spartans</span>
+        </div>
+      </a>
+
+      <!-- Center Floating Pill Nav Bar -->
+      <nav class="center-nav-pill" role="navigation" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="grade-11.html" class="nav-link">Grade 11</a>
+        <a href="grade-12.html" class="nav-link">Grade 12</a>
+        <a href="series.html" class="nav-link">Sci-Teach Series</a>
+        <a href="admin.html" class="nav-link active">Admin Portal</a>
+      </nav>
+
+      <!-- Nav Actions Right -->
+      <div class="nav-actions">
+        <a href="contribute.html" class="circle-arrow-btn" title="Submit Resources" aria-label="Submit Resources">
+          ↗
+        </a>
+        <a href="contribute.html" class="nav-cta-pill">
+          <span>Contribute</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- MOBILE SLIDE-OVER DRAWER -->
+  <div class="mobile-drawer" role="dialog" aria-modal="true">
+    <nav class="mobile-drawer-links">
+      <a href="index.html" class="mobile-drawer-link">
+        <span>Home Hub</span>
+        <span>→</span>
+      </a>
+      <a href="grade-11.html" class="mobile-drawer-link">
+        <span>Grade 11 Resources</span>
+        <span>→</span>
+      </a>
+      <a href="grade-12.html" class="mobile-drawer-link">
+        <span>Grade 12 Resources</span>
+        <span>→</span>
+      </a>
+      <a href="series.html" class="mobile-drawer-link">
+        <span>Sci-Teach Series</span>
+        <span>→</span>
+      </a>
+      <a href="contribute.html" class="mobile-drawer-link">
+        <span>Contribute Portal</span>
+        <span>↗</span>
+      </a>
+      <a href="admin.html" class="mobile-drawer-link active">
+        <span>Officer Publishing Dashboard</span>
+        <span>🔒</span>
+      </a>
+    </nav>
+    <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; color: var(--text-subtle);">
+      University of Science and Technology of Southern Philippines<br>
+      Sci-Tech Society • Officer Administration
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO HEADER -->
+    <section class="page-hero" aria-labelledby="adminPageTitle">
+      <div class="page-hero-inner">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+          <span class="section-pill-badge badge-gold">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            Officer Publishing Gateway • Zero Manual Code Edits
+          </span>
+          
+          <button id="btnOpenSettings" class="btn-hero-secondary" style="padding: 0.4rem 1.1rem; font-size: 0.78rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            <span>GitHub Settings</span>
+          </button>
+        </div>
+
+        <h1 id="adminPageTitle" class="page-title">
+          OFFICER ADMIN<br>PUBLISHING DASHBOARD
+        </h1>
+        <p class="page-description">
+          Empowering Sci-Tech Society Academic Officers to verify, catalog, and publish vetted student study materials directly to the GitHub repository without editing code files manually.
+        </p>
+      </div>
+    </section>
+
+    <!-- ADMIN WORKSPACE -->
+    <section class="container" style="padding-top: 3.5rem; padding-bottom: 6rem;">
+      <div class="contribute-grid">
+        
+        <!-- PUBLISHING FORM CARD -->
+        <div class="contribute-form-card" style="border-color: rgba(59, 130, 246, 0.35);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+            <div>
+              <h2 style="font-family: var(--font-serif); font-size: 1.6rem; font-weight: 800; color: #fff; text-transform: uppercase;">
+                Publish Digital Resource
+              </h2>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                Commits directly to <code style="color: var(--theme-gold-light); font-family: var(--font-mono);">assets/js/data.js</code> via GitHub Contents API.
+              </p>
+            </div>
+            <div id="githubStatusBadge" class="ann-badge" style="background: rgba(2, 132, 199, 0.15); border: 1px solid rgba(2, 132, 199, 0.35); color: var(--theme-g11-light);">
+              Checking API...
+            </div>
+          </div>
+
+          <form id="adminPublishForm">
+            
+            <!-- ROW 1: GRADE LEVEL & SUBJECT -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="adminGradeLevel" class="form-label">
+                  Target Grade Level <span class="required">*</span>
+                </label>
+                <select id="adminGradeLevel" class="form-select" required>
+                  <option value="11">Grade 11 (Earth & Life, Physical Science)</option>
+                  <option value="12" selected>Grade 12 (Gen Physics, Gen Chem, Gen Bio)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="adminTargetSubject" class="form-label">
+                  Target Subject <span class="required">*</span>
+                </label>
+                <select id="adminTargetSubject" class="form-select" required>
+                  <!-- Dynamically populated based on Grade Level -->
+                </select>
+              </div>
+            </div>
+
+            <!-- ROW 2: MODULE / SEMESTER & CATEGORY -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="adminTargetSection" class="form-label">
+                  Target Module / Semester <span class="required">*</span>
+                </label>
+                <select id="adminTargetSection" class="form-select" required>
+                  <!-- Dynamically populated based on Subject -->
+                </select>
+                <span class="form-hint">Select the curriculum unit to append this resource into.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="adminCategory" class="form-label">
+                  Resource Category <span class="required">*</span>
+                </label>
+                <select id="adminCategory" class="form-select" required>
+                  <option value="Readable/Text">READABLE / TEXT (Handout, Summary, PDF)</option>
+                  <option value="Watchable/Video">WATCHABLE / VIDEO (Facebook Reel / Walkthrough)</option>
+                  <option value="Personal Notes/Docs">PERSONAL NOTES / DOCS (Cheat Sheet, Formula Sheet)</option>
+                  <option value="Practice Exercises">PRACTICE EXERCISES (Formative Reviewer, Drill Set)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- ROW 3: TITLE & CONTRIBUTOR ALIAS -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="adminTitle" class="form-label">
+                  Resource Title & Topic <span class="required">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="adminTitle" 
+                  class="form-input" 
+                  placeholder="e.g. Electric Flux & Gauss's Law Problem Breakdown" 
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="adminContributor" class="form-label">
+                  Contributor Name / Alias <span class="required">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="adminContributor" 
+                  class="form-input" 
+                  placeholder="e.g. Officer Dela Cruz / Spartan-01" 
+                  required
+                >
+              </div>
+            </div>
+
+            <!-- ROW 4: ACCESS / DRIVE LINK -->
+            <div class="form-group">
+              <label for="adminUrl" class="form-label">
+                Access / Drive URL <span class="required">*</span>
+              </label>
+              <input 
+                type="url" 
+                id="adminUrl" 
+                class="form-input" 
+                placeholder="https://drive.google.com/file/d/... or Facebook Reel URL" 
+                required
+              >
+              <span class="form-hint">Publicly accessible cloud view link or video reel destination.</span>
+            </div>
+
+            <!-- ROW 5: DESCRIPTION -->
+            <div class="form-group">
+              <label for="adminDescription" class="form-label">
+                Brief Description & Key Learning Objectives <span class="required">*</span>
+              </label>
+              <textarea 
+                id="adminDescription" 
+                class="form-textarea" 
+                rows="3" 
+                placeholder="Detail the competencies covered, formulas solved, derivations, or exam tips included..." 
+                required
+              ></textarea>
+            </div>
+
+            <!-- ROW 6: PIN / PASSCODE PROTECTION -->
+            <div class="form-group" style="padding: 1.25rem; background: rgba(7, 10, 18, 0.6); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); margin-bottom: 2rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                <label for="adminPasscode" class="form-label" style="margin-bottom: 0;">
+                  <span style="display: inline-flex; align-items: center; gap: 0.4rem;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Officer Passcode / PIN <span class="required">*</span>
+                  </span>
+                </label>
+                <span style="font-size: 0.72rem; color: var(--text-subtle);">Default: SPARTAN2026</span>
+              </div>
+              <input 
+                type="password" 
+                id="adminPasscode" 
+                class="form-input" 
+                placeholder="Enter officer authorization PIN" 
+                autocomplete="current-password"
+                required
+              >
+              <span class="form-hint">Secures publish actions against unauthorized client-side triggers.</span>
+            </div>
+
+            <!-- SUBMIT BUTTON -->
+            <button type="submit" id="btnPublish" class="btn-submit-portal" style="background: linear-gradient(135deg, #1e3a8a 0%, #0284c7 100%);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              <span id="btnPublishText">Publish to Sci-Teach Library</span>
+            </button>
+
+          </form>
+        </div>
+
+        <!-- SIDEBAR: GITHUB SETTINGS & RECENT PUBLICATIONS -->
+        <div>
+          
+          <!-- GITHUB REPOSITORY STATUS CARD -->
+          <div class="guidelines-card" style="margin-bottom: 2rem; border-color: rgba(2, 132, 199, 0.3);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle; margin-right: 0.4rem;">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                GitHub Connection
+              </h3>
+              <button id="btnQuickConfig" style="color: var(--theme-gold-light); font-size: 0.78rem; text-decoration: underline; cursor: pointer;">
+                Edit
+              </button>
+            </div>
+
+            <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6;">
+              <div style="margin-bottom: 0.35rem;">
+                <strong style="color: #fff;">Repository:</strong> <span id="lblRepoDisplay" style="font-family: var(--font-mono); color: var(--theme-g11-light);">Not configured</span>
+              </div>
+              <div style="margin-bottom: 0.35rem;">
+                <strong style="color: #fff;">Branch:</strong> <span id="lblBranchDisplay" style="font-family: var(--font-mono); color: #fff;">main</span>
+              </div>
+              <div>
+                <strong style="color: #fff;">PAT Status:</strong> <span id="lblPatStatus" style="font-family: var(--font-mono); color: var(--theme-gold-light);">Missing Token</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.75rem; color: var(--text-subtle);">
+              Your Fine-Grained Personal Access Token is stored strictly in your browser's local storage and is transmitted exclusively to <code style="color: #fff;">api.github.com</code>.
+            </div>
+          </div>
+
+          <!-- RECENT DIRECT PUBLICATIONS CARD -->
+          <div class="recent-submissions-card">
+            <h4 style="font-family: var(--font-serif); font-size: 1rem; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: space-between;">
+              <span>Recent Officer Publishes</span>
+              <span style="font-size: 0.7rem; color: var(--theme-gold-light); font-family: var(--font-mono);">Direct Commits</span>
+            </h4>
+            
+            <div id="officerPublishesList" class="recent-sub-list">
+              <!-- Dynamically populated via assets/js/admin.js -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- GITHUB SETTINGS MODAL -->
+  <div id="settingsModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 580px;">
+      <button onclick="closeSettingsModal()" class="modal-close-btn" aria-label="Close modal">✕</button>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <span class="section-pill-badge badge-blue" style="margin-bottom: 0.5rem;">Configuration</span>
+        <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: #fff;">GitHub API Settings</h2>
+        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-top: 0.25rem;">
+          Configure your GitHub Fine-Grained Personal Access Token (PAT) and repository to enable automated publishing to <code style="color: var(--theme-gold-light);">assets/js/data.js</code>.
+        </p>
+      </div>
+
+      <form id="githubSettingsForm">
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label for="cfgOwner" class="form-label">GitHub Username / Organization <span class="required">*</span></label>
+          <input type="text" id="cfgOwner" class="form-input" placeholder="e.g. your-github-username" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label for="cfgRepo" class="form-label">Repository Name <span class="required">*</span></label>
+          <input type="text" id="cfgRepo" class="form-input" placeholder="e.g. sci-teach-library" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label for="cfgBranch" class="form-label">Target Branch</label>
+          <input type="text" id="cfgBranch" class="form-input" placeholder="main" value="main">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+          <label for="cfgToken" class="form-label">GitHub Personal Access Token (PAT) <span class="required">*</span></label>
+          <input type="password" id="cfgToken" class="form-input" placeholder="github_pat_... or ghp_..." required>
+          <span class="form-hint">Token requires <strong>Contents: Read & Write</strong> repository permissions.</span>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+          <button type="button" onclick="closeSettingsModal()" class="btn-hero-secondary" style="padding: 0.6rem 1.25rem; font-size: 0.8rem;">Cancel</button>
+          <button type="submit" class="btn-hero-primary" style="padding: 0.6rem 1.5rem; font-size: 0.8rem;">Save Settings</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- COMMIT SUCCESS MODAL -->
+  <div id="commitSuccessModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button onclick="closeCommitModal()" class="modal-close-btn" aria-label="Close modal">✕</button>
+      <div id="commitModalContent"></div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-emblem">
+              <img src="assets/images/ustp-logo-transparent.png" alt="USTP Logo" width="36" height="36">
+            </div>
+            <div class="brand-title-group">
+              <span class="brand-title">Sci-Teach</span>
+              <span class="brand-subtitle">USTP Spartans</span>
+            </div>
+          </div>
+          <p>
+            Centralized digital resource hub designed for senior high school STEM students at the University of Science and Technology of Southern Philippines. Built for zero-config GitHub Pages deployment.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Grade 11</h4>
+          <div class="footer-links">
+            <a href="grade-11.html">Earth & Life Science</a>
+            <a href="grade-11.html">Physical Science</a>
+            <a href="grade-11.html">Module 1: Origin of Elements</a>
+            <a href="grade-11.html">Module 3: IMFA & Polarity</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Grade 12</h4>
+          <div class="footer-links">
+            <a href="grade-12.html">General Physics (1 & 2)</a>
+            <a href="grade-12.html">General Chemistry (1 & 2)</a>
+            <a href="grade-12.html">General Biology (1 & 2)</a>
+            <a href="grade-12.html">2nd Sem Midterms Reviewer</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Resources & Hub</h4>
+          <div class="footer-links">
+            <a href="series.html">Sci-Teach Series (Seasons 1–4)</a>
+            <a href="contribute.html">Submit Study Material</a>
+            <a href="admin.html">Officer Publishing Dashboard</a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 University of Science and Technology of Southern Philippines — Senior High School Sci-Tech Society. All rights reserved.
+        </div>
+        <div style="font-family: var(--font-mono);">
+          Scientia et Virtus • Conquer STEM
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

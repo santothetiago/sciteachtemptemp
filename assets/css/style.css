@@ -383,35 +383,35 @@ button {
   background-color: #070b16;
 }
 
-/* Revised Spartan Warrior Backdrop (Positioned right with ample dark space on left) */
+/* Revised Library Hero Scene (High-Resolution Background Shifted Right for Negative Space) */
 .hero-backdrop {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background-image: url('../images/spartan-raw.jpg');
+  background-image: url('../images/hero-library.png');
   background-size: cover;
-  background-position: center center;
+  background-position: 78% center;
   background-repeat: no-repeat;
 }
 
-/* Directional Navy Gradient: strongest behind headline on left, fading smoothly toward center */
+/* Directional Navy Gradient: Deep luxury slate on the left to anchor the large typography, fading across the center */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
   background: 
     linear-gradient(to right, 
-      rgba(7, 12, 26, 0.90) 0%, 
-      rgba(7, 12, 26, 0.82) 28%, 
-      rgba(7, 12, 26, 0.50) 48%, 
-      rgba(7, 12, 26, 0.20) 70%, 
-      rgba(7, 12, 26, 0.35) 100%
+      rgba(7, 12, 26, 0.94) 0%, 
+      rgba(7, 12, 26, 0.88) 32%, 
+      rgba(7, 12, 26, 0.65) 52%, 
+      rgba(7, 12, 26, 0.22) 72%, 
+      rgba(7, 12, 26, 0.38) 100%
     ),
     linear-gradient(to bottom, 
-      rgba(7, 12, 26, 0.45) 0%, 
-      transparent 25%, 
-      transparent 70%, 
-      rgba(7, 10, 19, 0.95) 100%
+      rgba(7, 12, 26, 0.50) 0%, 
+      transparent 22%, 
+      transparent 68%, 
+      rgba(7, 10, 19, 0.96) 100%
     );
   pointer-events: none;
 }
@@ -426,18 +426,18 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 2.5rem;
-  min-height: calc(100vh - var(--header-height) - 5rem);
-  padding-top: 1rem;
+  gap: 3rem;
+  min-height: calc(100vh - var(--header-height) - 4rem);
+  padding-top: 1.25rem;
 }
 
-/* --- HERO LEFT: ~40% WIDTH, RAISED POSITIONING (18-22% VIEWPORT HEIGHT) --- */
+/* --- HERO LEFT: DRAMATICALLY SCALED DOMINANT VISUAL ANCHOR --- */
 .hero-left-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 40%;
-  max-width: 500px;
+  width: 50%;
+  max-width: 680px;
   margin-top: 0.5rem;
   margin-bottom: 2rem;
 }
@@ -447,88 +447,92 @@ button {
   flex-direction: column;
 }
 
-/* Dominant Main Portal Title */
+/* Dramatically Scaled Dominant Main Headline */
 .hero-main-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.1rem, 3.1vw, 3.15rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: 0.02em;
+  font-size: clamp(3.2rem, 5.2vw, 5.6rem);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
   color: #ffffff;
-  margin-bottom: 0.65rem;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.85);
+  margin-bottom: 1.15rem;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9);
 }
 
-/* Smaller Slogan */
+/* Proportionally Scaled Slogan */
 .hero-slogan {
   font-family: var(--font-serif);
-  font-size: clamp(1.15rem, 1.7vw, 1.6rem);
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: 0.05em;
+  font-size: clamp(1.45rem, 2.25vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2.25rem;
-  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.75);
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 2.5rem;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.8);
 }
 
 .hero-dash {
   font-weight: 400;
   color: var(--theme-gold-light);
-  margin-right: 0.25rem;
+  margin-right: 0.35rem;
 }
 
-/* Thin Vertical Line Accent + Subtext Block (Consistent Left Alignment) */
+/* Bold Vertical Accent + Doubled Body Text Paragraph */
 .hero-subtext-block {
   position: relative;
-  padding-left: 1.4rem;
-  max-width: 450px;
+  padding-left: 1.85rem;
+  max-width: 620px;
 }
 
 .hero-subtext-block::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 4px;
-  bottom: 4px;
-  width: 1.5px;
-  background: rgba(255, 255, 255, 0.45);
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--theme-gold-light) 0%, rgba(255, 255, 255, 0.6) 100%);
 }
 
+/* Doubled Font Size for High Legibility (No Longer Small Caption Text) */
 .hero-subtext {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: clamp(1.15rem, 1.5vw, 1.6rem);
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.82);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
 }
 
-/* --- HERO RIGHT: REFINED IRIDESCENT LIQUID-GLASS CARD --- */
+/* --- HERO RIGHT: SCALED IRIDESCENT LIQUID-GLASS CARD --- */
 .hero-floating-cards {
   display: flex;
   align-items: flex-end;
   align-self: flex-end;
   margin-bottom: 2rem;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
   flex-shrink: 0;
 }
 
-/* Refined Iridescent Liquid-Glass Card (Exact Reference Match) */
+/* Refined Iridescent Liquid-Glass Card (Scaled to Complement Larger Hero Text) */
 .hero-card-holo {
-  width: 310px;
-  min-height: 320px;
-  border-radius: 24px;
+  width: 345px;
+  min-height: 355px;
+  border-radius: 26px;
   /* Ultra-translucent liquid-glass surface: faint cyan, silver, and warm-white */
   background: 
-    radial-gradient(circle at 80% 20%, rgba(147, 197, 253, 0.12) 0%, transparent 55%),
-    radial-gradient(circle at 20% 80%, rgba(244, 214, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(147, 197, 253, 0.14) 0%, transparent 55%),
+    radial-gradient(circle at 20% 80%, rgba(244, 214, 255, 0.10) 0%, transparent 60%),
     linear-gradient(135deg, 
-      rgba(255, 255, 255, 0.09) 0%, 
+      rgba(255, 255, 255, 0.10) 0%, 
       rgba(255, 255, 255, 0.02) 40%, 
-      rgba(180, 220, 255, 0.04) 75%, 
-      rgba(255, 255, 255, 0.06) 100%
+      rgba(180, 220, 255, 0.05) 75%, 
+      rgba(255, 255, 255, 0.07) 100%
     ),
-    rgba(10, 16, 30, 0.32);
+    rgba(10, 16, 30, 0.35);
   /* Moderate blur with color saturation and brightness so background colors pop */
   backdrop-filter: blur(14px) saturate(190%) brightness(104%);
   -webkit-backdrop-filter: blur(14px) saturate(190%) brightness(104%);
@@ -542,7 +546,7 @@ button {
     inset 0 -1.5px 1.5px 0 rgba(147, 197, 253, 0.2),
     0 25px 50px rgba(0, 0, 0, 0.45),
     0 0 25px rgba(56, 189, 248, 0.12);
-  padding: 1.5rem 1.45rem;
+  padding: 1.85rem 1.75rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -556,7 +560,7 @@ button {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 24px;
+  border-radius: 26px;
   background-image: url('../images/glass-iridescent.png');
   background-size: cover;
   background-position: center;
@@ -602,14 +606,14 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   position: relative;
   z-index: 2;
 }
 
 .holo-shield-badge {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.28);
@@ -621,12 +625,12 @@ button {
 }
 
 .holo-badge-pill {
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--theme-gold-light);
   background: rgba(255, 255, 255, 0.08);
-  padding: 0.25rem 0.65rem;
+  padding: 0.3rem 0.75rem;
   border-radius: var(--radius-full);
   border: 1px solid rgba(255, 255, 255, 0.12);
   text-transform: uppercase;
@@ -635,41 +639,41 @@ button {
 .holo-card-center {
   position: relative;
   z-index: 2;
-  margin: 0.5rem 0;
+  margin: 0.75rem 0;
 }
 
 .holo-title {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #ffffff;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.65rem;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .holo-desc {
-  font-size: 0.78rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Card Footer with smaller text */
 .holo-card-footer {
-  padding-top: 0.75rem;
+  padding-top: 0.85rem;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   position: relative;
   z-index: 2;
 }
 
 .holo-footer-text {
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.78);
   text-transform: uppercase;
   font-family: var(--font-sans);
   display: block;
@@ -2010,13 +2014,18 @@ button {
   }
 
   .hero-main-title {
-    font-size: clamp(1.85rem, 5vw, 2.5rem);
-    margin-bottom: 0.5rem;
+    font-size: clamp(2.4rem, 6.5vw, 3.4rem);
+    line-height: 1.02;
+    margin-bottom: 0.75rem;
   }
 
   .hero-slogan {
-    font-size: clamp(1.05rem, 3vw, 1.35rem);
-    margin-bottom: 1.75rem;
+    font-size: clamp(1.2rem, 3.5vw, 1.65rem);
+    margin-bottom: 1.85rem;
+  }
+
+  .hero-subtext {
+    font-size: clamp(1.05rem, 2.5vw, 1.25rem);
   }
 
   .hero-left-content {
@@ -2032,7 +2041,7 @@ button {
 
   .hero-card-holo {
     width: 100%;
-    max-width: 320px;
+    max-width: 360px;
     min-height: auto;
   }
 
@@ -2047,16 +2056,23 @@ button {
 
 @media (max-width: 580px) {
   .hero-main-title {
-    font-size: 1.75rem;
+    font-size: 2.15rem;
+    line-height: 1.05;
   }
 
   .hero-slogan {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 1.5rem;
+  }
+
+  .hero-subtext {
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
   .hero-subtext-block {
     max-width: 100%;
+    padding-left: 1.25rem;
   }
 
   .hero-floating-cards {
