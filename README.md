@@ -165,17 +165,6 @@ To manually add a new reviewer or video episode, edit `assets/js/data.js`:
 
 Save the file and commit to `main` — GitHub Pages updates automatically within seconds!
 
----
-
-## 👥 Acknowledgments & Credits
-
-- **University of Science and Technology of Southern Philippines (USTP)**
-- **Senior High School STEM Program ("Spartans")**
-- **Sci-Tech Society Officers & Academic Committee**
-- **Faculty Reviewers & Mentors**:
-  - Ma'am Glea Maes Sales *(Physical Science)*
-  - Ma'am Naurah Malawi *(General Physics & General Chemistry 1st Sem)*
-  - Ma'am Charisa Bee Aleonar *(General Biology & General Chemistry 2nd Sem)*
 
 ---
 
