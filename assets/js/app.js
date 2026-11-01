@@ -4,6 +4,13 @@
  * Dynamic Renderer, Real-time Search/Filter, & UI Interactions
  */
 
+/* ===================================================================
+   GOOGLE APPS SCRIPT DEPLOYMENT URL
+   Replace this placeholder with your actual Apps Script Web App URL
+   after deploying backend/Code.gs
+   =================================================================== */
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwuy0F85dfHMjVbneadCwB-Pn20qYyhZ8g7GHWhJSg8HMYuD5iPsXFqJf9s4s539-dQ4w/exec';
+
 document.addEventListener('DOMContentLoaded', () => {
   initGlobalNavigation();
   initPageSpecificLogic();
@@ -606,7 +613,7 @@ function initContributePage(data) {
   // Render recent submissions from localStorage
   function renderLocalSubmissions() {
     if (!userSubmissionsList) return;
-    const stored = JSON.parse(localStorage.getItem('sci_teach_user_contributions') || '[]');
+    const stored = JSON.parse(localStorage.getItem('sciTeachCache') || '[]');
 
     if (stored.length === 0) {
       userSubmissionsList.innerHTML = `
@@ -634,9 +641,9 @@ function initContributePage(data) {
   }
 
   window.deleteSubmission = function(index) {
-    const stored = JSON.parse(localStorage.getItem('sci_teach_user_contributions') || '[]');
+    const stored = JSON.parse(localStorage.getItem('sciTeachCache') || '[]');
     stored.splice(index, 1);
-    localStorage.setItem('sci_teach_user_contributions', JSON.stringify(stored));
+    localStorage.setItem('sciTeachCache', JSON.stringify(stored));
     renderLocalSubmissions();
     showToast("Submission deleted from local device storage.", "info");
   };
@@ -660,16 +667,45 @@ function initContributePage(data) {
         verified: false
       };
 
-      // Save to localStorage
-      const stored = JSON.parse(localStorage.getItem('sci_teach_user_contributions') || '[]');
+      // Build payload for Google Apps Script backend
+      const payload = {
+        alias: newContribution.contributorName,
+        studentId: newContribution.studentId,
+        targetGrade: newContribution.gradeLevel,
+        targetSubject: newContribution.subject,
+        category: newContribution.resourceType,
+        topicTitle: newContribution.topicTitle,
+        cloudLink: newContribution.driveLink,
+        description: newContribution.description
+      };
+
+      // POST to Google Apps Script (no-cors mode for cross-origin)
+      if (GOOGLE_APPS_SCRIPT_URL && GOOGLE_APPS_SCRIPT_URL !== 'YOUR_DEPLOYMENT_URL_HERE') {
+        fetch(GOOGLE_APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+        .then(() => {
+          console.log('Submission sent to Google Sheets backend.');
+        })
+        .catch((err) => {
+          console.warn('Google Sheets submission failed (offline or URL not set):', err);
+        });
+      }
+
+      // Save to localStorage under sciTeachCache
+      const stored = JSON.parse(localStorage.getItem('sciTeachCache') || '[]');
       stored.unshift(newContribution);
-      localStorage.setItem('sci_teach_user_contributions', JSON.stringify(stored));
+      localStorage.setItem('sciTeachCache', JSON.stringify(stored));
 
       form.reset();
       updateSubjects();
       renderLocalSubmissions();
 
       showSuccessModal(newContribution);
+      showToast("Submission logged & cached successfully!", "info");
     });
   }
 

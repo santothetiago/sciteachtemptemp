@@ -31,15 +31,17 @@ The platform's visual identity matches an epic **Spartan cinematic sci-fi aesthe
 ├── grade-12.html           # Grade 12 Hub (Gen Physics, Gen Chem, Gen Bio, Midterm Reviewers)
 ├── series.html             # Sci-Teach Series Hub (Seasons 1–4 Facebook Reels)
 ├── contribute.html         # Spartan Contribution Portal (Student Submission Gateway)
+├── backend/
+│   └── Code.gs             # Google Apps Script backend to log submissions to Google Sheets
 ├── assets/
 │   ├── css/
-│   │   └── style.css       # Full stylesheet with CSS custom properties & responsive grid/flexbox
+│   │   └── style.css       # Full stylesheet with CSS custom properties & responsive design
 │   ├── js/
 │   │   ├── data.js         # Centralized JSON data object containing all modules & metadata
-│   │   └── app.js          # Dynamic renderer, real-time client search, & interactions
+│   │   └── app.js          # Dynamic renderer, real-time client search, & form submissions
 │   └── images/
-│       ├── spartan-raw.jpg         # Raw Spartan warrior cinematic background (no watermark/text)
-│       ├── spartan-helmet.jpg      # 3D Golden Spartan helmet with fluid mercury ripples
+│       ├── spartan-raw.jpg         # Hero cover background image
+│       ├── glass-iridescent.png    # Procedural iridescent liquid-glass wave reflection texture
 │       ├── ustp-logo.png           # Official USTP University logo
 │       └── ustp-logo-transparent.png# Official USTP University logo (transparent emblem)
 └── README.md               # GitHub Pages setup and documentation
@@ -148,10 +150,20 @@ This project requires **no npm install, no bundlers, and no compilation**. To de
     - EP 5: *Patterns of Inheritance and Pedigree Analysis*
 - **Instant Search & Season Filter**: Filter by season or search for specific scientific terms.
 
-### 5. Contribution Portal (`contribute.html`)
-- **Student Submission Gateway**: Contributor Name, Grade Level, Dynamic Subject selector, Resource Type, Cloud link, and Description.
-- **Client-Side Persistence**: Submissions are cached locally in `localStorage` so students see their contributions instantly under *"Submissions On This Device"*.
+### 5. Contribution Portal (`contribute.html`) & Google Apps Script Backend (`backend/Code.gs`)
+- **Student Submission Gateway**: Contributor Alias, Student ID / Section, Grade Level, Dynamic Subject selector, Resource Category, Topic Title, Cloud file link, and Description.
+- **Google Sheets Cloud Integration**: Form submissions POST to a Google Apps Script Web App endpoint (`Code.gs`) that appends entries in real time to an active Google Sheet.
+- **Client-Side Persistence (`sciTeachCache`)**: Submissions are cached locally in `localStorage` under `sciTeachCache` so students see their contributions instantly under *"Submissions On This Device"*.
 - **Confirmation Modal**: Generates verification logs and formatted summary cards.
+
+#### Setting Up Google Sheets Cloud Backend:
+1. Create a Google Sheet for incoming contributions.
+2. Go to **Extensions** → **Apps Script**.
+3. Paste the contents of `backend/Code.gs`.
+4. Click **Deploy** → **New deployment** → **Web app**.
+   - Execute as: **Me**
+   - Who has access: **Anyone**
+5. Copy the deployment URL and replace `GOOGLE_APPS_SCRIPT_URL` at the top of `assets/js/app.js`.
 
 ---
 
